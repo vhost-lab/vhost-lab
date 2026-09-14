@@ -2,8 +2,8 @@ name: Generate Stats Cards
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 매일 밤 12시 자동 실행
-  workflow_dispatch: # 수동 실행 버튼 활성화
+    - cron: "0 0 * * *"
+  workflow_dispatch:
 
 jobs:
   publish:
@@ -11,7 +11,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: vn7n24fzkq/github-profile-summary-cards@v0.6.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
